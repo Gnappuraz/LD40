@@ -53,11 +53,11 @@ public class GameManager : MonoBehaviour
         GameObject toInstantiate;
         RectTransform rectTransform;
 
-        if (headComponent.transform.position.x >= 0 )
+        /*if (headComponent.transform.position.x >= 0 )
         {
             rectTransform = (RectTransform)headComponent.transform;
             instance = Instantiate(basicComponent, new Vector3(rectTransform.rect.width, 0, 1f), Quaternion.identity) as GameObject;
             headComponent = instance;
-        }
+        }*/
     }
 }
