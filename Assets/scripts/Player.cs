@@ -3,20 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+    
+    [SerializeField] private float jumpHigh;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
 
-    public float jumpHeight;
+    private float groundCheckRad = 0.1f;
+
+    private Animator animator;
     private Rigidbody2D rb;
+    private Collider2D collider;
+    private bool grounded;
 
-    // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody2D>();
+        collider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+        grounded = true;
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown("space"))
+
+    private void FixedUpdate()
+    {
+        //Collider2D collider = Physics2D.OverlapCircle(groundCheck.position, groundCheckRad, groundLayer);
+        //bool onGround = collider != null;
+
+        bool onGround = Physics2D.IsTouchingLayers(collider);
+        if ( onGround != grounded)
         {
-            rb.velocity = new Vector3(0, 10 * jumpHeight * Time.deltaTime, 0);
+            grounded = onGround;
+            animator.SetBool("grounded", grounded);    
+        }
+    }
+
+    void Update () {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (grounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.AddForce(new Vector2(0f, jumpHigh*10));
+            }
         }
     }
 }
