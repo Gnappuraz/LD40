@@ -10,19 +10,18 @@ public class screenLimit : MonoBehaviour {
 				
 	}
 
-	private void OnCollisionEnter2D(Collision2D other)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "ground")
+		if (other.gameObject.CompareTag("ground"))
 		{
 			//TODO remove
 			Debug.Log("create new ground");
 			GameManager.instance.InstanceNewGround();	
-		} else if (other.gameObject.tag == "player")
+		} else if (other.gameObject.CompareTag("player"))
 		{
 			//TODO remove
 			Debug.Log("Player out of screen");
 			GameManager.instance.PlayerKilled();
 		}
-		
 	}
 }

@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
         notActiveComponents = new List<GameObject>();
 
         //do not instantiate at 0 or there is not gonna be a OntriggerEnter2D for the screenLimitCollider
-        instance = Instantiate(basicComponent, new Vector3(-1.0f, 0, 1f), Quaternion.identity) as GameObject;
+        instance = Instantiate(basicComponent, new Vector3(1.0f, 0, 1f), Quaternion.identity) as GameObject;
         lastSpawned = instance.GetComponent<BoxCollider2D>();
 
         activeComponents.Add(basicComponent);
