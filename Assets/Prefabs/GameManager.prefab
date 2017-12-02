@@ -51,5 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2359f7bcb164c71439a09c0d203b66d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 114771000744994024, guid: 0e7a747cb0afd544cbe5bb73f64afaf7,
+  speed: 0
+  basicComponent: {fileID: 1620204232087018, guid: ed70c0a765a4c8b4fb29f25476f02259,
     type: 2}
+  components: []
