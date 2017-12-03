@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogManager : MonoBehaviour {
+public class DialogSceneManager : MonoBehaviour
+{
+
+    public static DialogSceneManager instance = null;
 
     public string[] frasi_anna = {"Hi Granpa, how are you today ?",
                             "Do you remember me? I’m Anna",
@@ -38,9 +41,12 @@ public class DialogManager : MonoBehaviour {
     public Text textAnna;
     public Text textNonno;
     public Button dialogButton;
+    bool permittedDialog = false;
+    Animation animation;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         textAnna = GameObject.Find("TextAnna").GetComponent<Text>();
         textNonno = GameObject.Find("TextNonno").GetComponent<Text>();
         dialogButton = GameObject.Find("Button").GetComponent<Button>();
@@ -59,12 +65,32 @@ public class DialogManager : MonoBehaviour {
 
     public void GoAhead()
     {
-        if (index < frasi_anna.Length - 1)
+        if (index < frasi_anna.Length - 1 && permittedDialog)
         {
             index++;
 
             textAnna.text = frasi_anna[index];
             textNonno.text = frasi_nonno[index];
         }
+
+        if (index == frasi_anna.Length - 1)
+            GameObject.Find("sfondo").GetComponent<Animator>().SetBool("end", true);
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void PermitDialog()
+    {
+        permittedDialog = true;
+
+        GoAhead();
     }
 }

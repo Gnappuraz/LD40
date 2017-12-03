@@ -6,6 +6,6 @@ public class AnimationControllerScript : MonoBehaviour {
 
 	public void PermitDialog()
     {
-        DialogManagerScript.instance.PermitDialog();
+        DialogSceneManager.instance.PermitDialog();
     }
 }
