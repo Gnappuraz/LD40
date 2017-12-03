@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> level1;
     [SerializeField] private List<GameObject> level2;
     [SerializeField] private List<GameObject> level3;
+    [SerializeField] private List<GameObject> level4;
+    [SerializeField] private List<GameObject> level5;
     [SerializeField] private List<float> speedDiffModifiers;
 
     [SerializeField] private Transform terrainHolder;
@@ -53,6 +55,8 @@ public class GameManager : MonoBehaviour
         difficultyObjects.Add(level1);
         difficultyObjects.Add(level2);
         difficultyObjects.Add(level3);
+        difficultyObjects.Add(level4);
+        difficultyObjects.Add(level5);
     }
 
     void Start()
