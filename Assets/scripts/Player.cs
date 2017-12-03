@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
         if ( onGround != grounded)
         {
             grounded = onGround;
-            animator.SetBool("grounded", grounded);    
+            if(grounded) animator.SetTrigger("grounded");    
         }
     }
 
@@ -54,7 +54,9 @@ public class Player : MonoBehaviour {
             if (grounded)
             {
                 rb.velocity = new Vector2(0, 0);
-                rb.AddForce(new Vector2(0f, jumpHigh*10));
+                rb.AddForce(new Vector2(0f, jumpHigh * 10));
+                animator.SetTrigger("jump");
+                grounded = false;
             }
         }
     }

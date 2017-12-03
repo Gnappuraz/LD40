@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> level3;
     [SerializeField] private List<float> speedDiffModifiers;
 
-    [SerializeField] private Transform terrainHolder; 
+    [SerializeField] private Transform terrainHolder;
+
+    [SerializeField] private Animator playerAnimator;
     
     List<List<GameObject>> difficultyObjects = new List<List<GameObject>>();
 
@@ -139,6 +141,7 @@ public class GameManager : MonoBehaviour
         if (letterManager.IsLevelWordlistComplete())
         {
             targetSpeed = 0;
+            playerAnimator.SetTrigger("stop");
             //GO to next level
         } else
         {

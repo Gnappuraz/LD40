@@ -1,9 +1,11 @@
 -0
+a
+-1
 love
 hate
--1
+-2
 memory
 lost
--2
+-3
 asd
 fusf
