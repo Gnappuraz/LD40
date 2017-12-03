@@ -3,10 +3,10 @@ using UnityEngine;
 using System.Collections;
 
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager instance = null;
 
     [SerializeField] private LetterManager letterManager;
@@ -87,9 +87,11 @@ public class GameManager : MonoBehaviour
             instance = Instantiate(startingTerrain, new Vector3(), Quaternion.identity, terrainHolder) as GameObject;
             instance.transform.localPosition = new Vector3(0, 0, 1f);
         }
-        else
-        {
-            instance = Instantiate(startingTerrain, new Vector3(), Quaternion.identity, terrainHolder) as GameObject;
+        else {
+            List<GameObject> pool = difficultyObjects[difficulty];
+            GameObject toInstantiate = pool[Random.Range(0, pool.Count)];
+
+            instance = Instantiate(toInstantiate, new Vector3(), Quaternion.identity, terrainHolder) as GameObject;
             instance.transform.localPosition = new Vector3(lastSpawned.gameObject.transform.position.x + lastSpawned.size.x, 0, 1f);
             enableLetter(instance.GetComponent<LevelSection>());
         }
@@ -103,6 +105,8 @@ public class GameManager : MonoBehaviour
         int letters = section.letterPlaceholders.Count;
         int r = (int) (Time.deltaTime * 100);
         LetterController selected = section.letterPlaceholders[r % letters];
+        
+        if(selected == null) return;
 
         string nextLetter = letterManager.GetNextLetter();
         if (nextLetter != null)
