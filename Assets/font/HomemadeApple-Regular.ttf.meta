@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: a4281bc4cac3e7f43afd669fb04075a0
-timeCreated: 1512296232
+guid: d31a2cb503636427da8c8bb3409bf65a
+timeCreated: 1512313185
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 15
+  fontSize: 60
   forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Josefin Slab
+  fontName: Homemade Apple
   fontNames:
-  - Josefin Slab
+  - Homemade Apple
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

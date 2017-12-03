@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: a4281bc4cac3e7f43afd669fb04075a0
-timeCreated: 1512296232
+guid: c4af77e82ba674fb8ae5b008801a2bf7
+timeCreated: 1512313258
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 15
+  fontSize: 60
   forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Josefin Slab
+  fontName: Marck Script
   fontNames:
-  - Josefin Slab
+  - Marck Script
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
