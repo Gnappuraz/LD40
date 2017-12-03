@@ -58,7 +58,7 @@ public class DialogSceneManager : MonoBehaviour
         textNonno = GameObject.Find("TextNonno").GetComponent<Text>();
         dialogButton = GameObject.Find("Button").GetComponent<Button>();
 
-        //dialogButton.onClick.AddListener(GoAhead);
+        dialogButton.onClick.AddListener(GoAhead);
     }
 
     // Update is called once per frame

@@ -1178,6 +1178,7 @@ GameObject:
   - component: {fileID: 1843139164}
   - component: {fileID: 1843139163}
   - component: {fileID: 1843139166}
+  - component: {fileID: 1843139167}
   m_Layer: 5
   m_Name: CreditsButton
   m_TagString: Untagged
@@ -1248,7 +1249,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1843139164}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1843139167}
+        m_MethodName: LoadByIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1843139164
@@ -1301,6 +1313,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1843139167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1843139161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eece3f9098cd06041a670d6ac448a9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1961421480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1555,7 @@ RectTransform:
   m_GameObject: {fileID: 1996456890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.009259259, y: 0.009259259, z: 0.009259259}
+  m_LocalScale: {x: 0.015797788, y: 0.015797788, z: 0.015797788}
   m_Children:
   - {fileID: 990699060}
   - {fileID: 923177608}
@@ -1567,7 +1590,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2003976275}
-  m_LocalRotation: {x: -0, y: -0, z: 0.21405576, w: 0.9768214}
+  m_LocalRotation: {x: -0, y: -0, z: 0.21405578, w: 0.9768215}
   m_LocalPosition: {x: -132, y: -17, z: 0}
   m_LocalScale: {x: 1.00008, y: 1.00008, z: 0}
   m_Children: []
