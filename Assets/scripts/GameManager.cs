@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         //Check pool for object with same difficulty
         //if there is one use it otherwise instantiate it
         
-        Debug.Log(lastSpawned.gameObject.transform.position.x + lastSpawned.size.x*2);
+        //Debug.Log(lastSpawned.gameObject.transform.position.x + lastSpawned.size.x*2);
         
         //Get current level
         //Get random object from current level
