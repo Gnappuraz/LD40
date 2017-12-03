@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/screen_credits.unity
     guid: de2034decc8b4436fb0e55957c61c516
+  - enabled: 1
+    path: Assets/scenes/main.unity
+    guid: 5b77a03d1cbed4041a86b79700a0b143
