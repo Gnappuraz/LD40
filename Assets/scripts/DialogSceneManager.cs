@@ -8,32 +8,32 @@ public class DialogSceneManager : MonoBehaviour
 
     public static DialogSceneManager instance = null;
 
-    public string[] frasi_anna = {"Hi Granpa, how are you today ?",
-                            "Do you remember me? I’m Anna",
+    public string[] frasi_anna = {"Hi Granpa, how are you today?",
+                            "Do you remember me? I’m Anna...",
                             "Have you see the sky yesterday night?",
                             "So many stars, the most incredible Starry Night!",
-                            "I think that you have to renovate your bedroom",
-                            "Maybe you can buy a more comfortable chair",
-                            "This afternoon i’m going to pick up the keys",
-                            "Finally I’ll have a house only for me",
-                            "Finally I’ll be just me",
+                            "I think that you have to renovate your bedroom.",
+                            "Maybe you can buy a more comfortable chair.",
+                            "This afternoon I’m going to pick up the keys.",
+                            "Finally I’ll have a house only for me!",
+                            "Finally I’ll be just me.",
                             "Granpa, are you alright?",
                             "Granpa?",
-                            "No, you’re not alone. I’m here and this nursing home, is beautiful",
+							"No, you’re not alone. I’m here as always and, this nursing home, is beautiful...",
                             "Granpa..." };
 
     public string[] frasi_nonno = {"Mhmm… Mhmm...",
                             "Mhmm… Mhmm...",
+                            "Mhm...",
                             "Mhmm… Mhmm...",
+                            "Mhm...",
                             "Mhmm… Mhmm...",
-                            "Mhmm… Mhmm...",
-                            "Mhmm… Mhmm...",
-                            "Mhmm… Mhmm...",
+                            "Mhm...",
                             "Mhmm… Mhmm...",
                             "...",
-                            "...",
-                            "Alone…",
-                            "Alone…",
+                            "... ...",
+                            "Alone?",
+                            "Alone...",
                             ""};
 
     public int index = -1;
