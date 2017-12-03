@@ -8,33 +8,8 @@ public class DialogSceneManager : MonoBehaviour
 
     public static DialogSceneManager instance = null;
 
-    public string[] frasi_anna = {"Hi Granpa, how are you today?",
-                            "Do you remember me? I’m Anna...",
-                            "Have you see the sky yesterday night?",
-                            "So many stars, the most incredible Starry Night!",
-                            "I think that you have to renovate your bedroom.",
-                            "Maybe you can buy a more comfortable chair.",
-                            "This afternoon I’m going to pick up the keys.",
-                            "Finally I’ll have a house only for me!",
-                            "Finally I’ll be just me.",
-                            "Granpa, are you alright?",
-                            "Granpa?",
-							"No, you’re not alone. I’m here as always and, this nursing home, is beautiful...",
-                            "Granpa..." };
-
-    public string[] frasi_nonno = {"Mhmm… Mhmm...",
-                            "Mhmm… Mhmm...",
-                            "Mhm...",
-                            "Mhmm… Mhmm...",
-                            "Mhm...",
-                            "Mhmm… Mhmm...",
-                            "Mhm...",
-                            "Mhmm… Mhmm...",
-                            "...",
-                            "... ...",
-                            "Alone?",
-                            "Alone...",
-                            ""};
+    public string[] frasi_anna;
+    public string[] frasi_nonno;
 
     public int index = -1;
 
@@ -59,6 +34,34 @@ public class DialogSceneManager : MonoBehaviour
         dialogButton = GameObject.Find("Button").GetComponent<Button>();
 
         dialogButton.onClick.AddListener(GoAhead);
+
+        frasi_anna = new string[] {"\"Hi Granpa, how are you today?\"",
+                            "\"Do you remember me? I’m Anna...\"",
+                            "\"Have you see the sky yesterday night?\"",
+                            "\"So many stars, the most incredible Starry Night!\"",
+                            "\"I think that you have to renovate your bedroom.\"",
+                            "\"Maybe you can buy a more comfortable chair.\"",
+                            "\"This afternoon I’m going to pick up the keys.\"",
+                            "\"Finally I’ll have a house only for me!\"",
+                            "\"Finally I’ll be just me.\"",
+                            "\"Granpa, are you alright?\"",
+                            "\"Granpa?\"",
+                            "\"No, you’re not alone. I’m here as always and, this nursing home, is beautiful...\"",
+                            "\"Granpa...\"" };
+
+        frasi_nonno = new string[] {"\"Mhmm… Mhmm...\"",
+                            "\"Mhmm… Mhmm...\"",
+                            "\"Mhm...\"",
+                            "\"Mhmm… Mhmm...\"",
+                            "\"Mhm...\"",
+                            "\"Mhmm… Mhmm...\"",
+                            "\"Mhm...\"",
+                            "\"Mhmm… Mhmm...\"",
+                            "\"...\"",
+                            "\"... ...\"",
+                            "\"Alone?\"",
+                            "\"Alone...\"",
+                            ""};
     }
 
     // Update is called once per frame
