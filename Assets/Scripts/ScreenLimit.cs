@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class screenLimit : MonoBehaviour {
+public class ScreenLimit : MonoBehaviour {
 
 	
 	// Update is called once per frame
@@ -22,6 +22,16 @@ public class screenLimit : MonoBehaviour {
 			//TODO remove
 			Debug.Log("Player out of screen");
 			GameManager.instance.PlayerKilled();
+		}
+	}
+
+	private void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.CompareTag("ground"))
+		{
+			//TODO remove
+			Debug.Log("create new ground");
+			GameManager.instance.InstanceNewGround();
 		}
 	}
 }
