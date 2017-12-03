@@ -87,9 +87,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            instance.transform.localPosition =
-                new Vector3(lastSpawned.gameObject.transform.position.x + lastSpawned.size.x, 0, 1f);
+            instance = Instantiate(startingTerrain, new Vector3(), Quaternion.identity, terrainHolder) as GameObject;
         }
+        
+        instance.transform.localPosition =
+            new Vector3(lastSpawned.gameObject.transform.position.x + lastSpawned.size.x, 0, 1f);
          
         lastSpawned = instance.GetComponent<BoxCollider2D>();
         return instance;
