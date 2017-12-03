@@ -51,55 +51,58 @@ public class GameManager : MonoBehaviour
         difficultyObjects.Add(level1);
         difficultyObjects.Add(level2);
         difficultyObjects.Add(level3);
-        
-        InitGame();
+    }
+
+    void Start()
+    {
+        InitGame();   
     }
 
     void InitGame()
     {
         GameObject instance;
 
-        //do not instantiate at 0 or there is not gonna be a OntriggerEnter2D for the screenLimitCollider
-        instance = spawnTerrain(-1);
-
         currentDifficulty = 0;
         speed = 0;
         targetSpeed = speedDiffModifiers[currentDifficulty];
-        
-        
+          
         letterManager.SetCurrentWords(levelWords[currentLevel]);
-
-        //activeComponents.Add(startingTerrain);
+        
+        //do not instantiate at 0 or there is not gonna be a OntriggerEnter2D for the screenLimitCollider
+        spawnTerrain(-1);
     }
 
     private GameObject spawnTerrain(int difficulty)
     {
-        //TODO
-        //Pick from elements with same difficulty
-        //Check pool for object with same difficulty
-        //if there is one use it otherwise instantiate it
-        
-        //Debug.Log(lastSpawned.gameObject.transform.position.x + lastSpawned.size.x*2);
-        
-        //Get current level
-        //Get random object from current level
 
         GameObject instance = null;
         if (difficulty == -1)
         {
             instance = Instantiate(startingTerrain, new Vector3(), Quaternion.identity, terrainHolder) as GameObject;
-            instance.transform.localPosition =
-                new Vector3(0, 0, 1f);
+            instance.transform.localPosition = new Vector3(0, 0, 1f);
         }
         else
         {
             instance = Instantiate(startingTerrain, new Vector3(), Quaternion.identity, terrainHolder) as GameObject;
-            instance.transform.localPosition =
-                new Vector3(lastSpawned.gameObject.transform.position.x + lastSpawned.size.x, 0, 1f);
+            instance.transform.localPosition = new Vector3(lastSpawned.gameObject.transform.position.x + lastSpawned.size.x, 0, 1f);
+            enableLetter(instance.GetComponent<LevelSection>());
         }
 
         lastSpawned = instance.GetComponent<BoxCollider2D>();
         return instance;
+    }
+
+    private void enableLetter(LevelSection section)
+    {
+        int letters = section.letterPlaceholders.Count;
+        int r = (int) (Time.deltaTime * 100);
+        LetterController selected = section.letterPlaceholders[r % letters];
+
+        string nextLetter = letterManager.GetNextLetter();
+        if (nextLetter != null)
+        {
+            selected.SetLetter(nextLetter);    
+        }
     }
 
     void Update()
@@ -109,7 +112,8 @@ public class GameManager : MonoBehaviour
 
     public void PlayerKilled()
     {
-        
+        targetSpeed = 0;
+        //GO to kill screen
     }
 
     public void InstanceNewGround()
@@ -136,22 +140,20 @@ public class GameManager : MonoBehaviour
         {
             targetSpeed = 0;
             //GO to next level
+        } else
+        {
+            //increase difficulty
         }
-        
-        
-        //Send letter to manager (update letter shown)
-        //is level completed? go to next level
-        // is not then increase difficulty (speed and difficulty set) 
     }
 
     private void moveUpToSpeed()
     {
-        if (targetSpeed == speed)
+        if (Math.Abs(targetSpeed - speed) < 0.001)
         {
-            return;
+            speed = targetSpeed;
         }
 
-        if (startAccTime == 0f)
+        if (Math.Abs(startAccTime) < 0.001)
         {
              startAccTime = Time.time;   
         }

@@ -14,24 +14,10 @@ public class ScreenLimit : MonoBehaviour {
 	{
 		if (other.gameObject.CompareTag("ground"))
 		{
-			//TODO remove
-			Debug.Log("create new ground");
 			GameManager.instance.InstanceNewGround();	
 		} else if (other.gameObject.CompareTag("player"))
 		{
-			//TODO remove
-			Debug.Log("Player out of screen");
 			GameManager.instance.PlayerKilled();
-		}
-	}
-
-	private void OnTriggerStay(Collider other)
-	{
-		if (other.gameObject.CompareTag("ground"))
-		{
-			//TODO remove
-			Debug.Log("create new ground");
-			GameManager.instance.InstanceNewGround();
 		}
 	}
 }

@@ -46,6 +46,9 @@ TagManager:
   - name: BG_FX
     uniqueID: 2139532447
     locked: 0
+  - name: Terrain
+    uniqueID: 3221513121
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

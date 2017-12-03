@@ -328,7 +328,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 208524843
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8813fc34dcae53f48b722f0247257d66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -499,6 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHigh: 80
+  catchUpVelocity: 0.8
   groundCheck: {fileID: 579650065}
   groundLayer:
     serializedVersion: 2
@@ -877,10 +878,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letterManager: {fileID: 1637495149}
   speed: 0.2
+  targetSpeed: 0
   acceleration: 20
-  startingTerrain: {fileID: 1687290344000442, guid: a6f5e19e1b0b52f40a075d992b3aeed7,
+  startingTerrain: {fileID: 1728851230376296, guid: a6f5e19e1b0b52f40a075d992b3aeed7,
     type: 2}
-  level0: []
+  level0:
+  - {fileID: 1728851230376296, guid: a6f5e19e1b0b52f40a075d992b3aeed7, type: 2}
   level1: []
   level2: []
   level3: []
@@ -978,7 +981,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4640913724436152, guid: 015f04a4cc6b08d40a394bfa544cec9c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.29
       objectReference: {fileID: 0}
     - target: {fileID: 4640913724436152, guid: 015f04a4cc6b08d40a394bfa544cec9c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1093,7 +1096,7 @@ Prefab:
     - target: {fileID: 50118275813834990, guid: 015f04a4cc6b08d40a394bfa544cec9c,
         type: 2}
       propertyPath: m_Constraints
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61677121043783780, guid: 015f04a4cc6b08d40a394bfa544cec9c, type: 2}

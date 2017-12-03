@@ -9,9 +9,12 @@ public class LetterManager : MonoBehaviour
 	[SerializeField] private Text textArea;
 	[SerializeField] private string activeColor;
 	[SerializeField] private string inactiveColor;
+
+	private bool wordListComplete;
 	
 	private Queue<string> currentWords = new Queue<string>();
 	private List<WordPair> completionMap = new List<WordPair>();
+	private List<string> givenLetters = new List<string>();	
 	
 	public void SetCurrentWords(List<string> levelWords)
 	{
@@ -23,16 +26,21 @@ public class LetterManager : MonoBehaviour
 		}
 		
 		currentWords = new Queue<string>(levelWords);
+		givenLetters.Clear();
+		completionMap.Clear();
+		wordListComplete = false;
 
 		string currentWord = currentWords.Dequeue();
-		
+
 		setCurrentWord(currentWord);
-		
+
 		UpdateText();
 	}
 
 	private void setCurrentWord(string word)
 	{
+		givenLetters.Clear();
+		completionMap.Clear();
 		char[] chars = word.ToCharArray();
 		foreach (char c in chars)
 		{
@@ -44,40 +52,40 @@ public class LetterManager : MonoBehaviour
 	{
 		foreach (WordPair pair in completionMap)
 		{
-			if (!pair.found) return pair.letter;
+			if (!pair.found && !givenLetters.Contains(pair.letter))
+			{
+				givenLetters.Add(pair.letter);
+				return pair.letter;	
+			}
 		}
-
-		Debug.LogError("No more letters to find, update the current word");
+		givenLetters.Clear();
+		
 		return null;
 	}
 
 	public void HitLetter(string letter)
 	{
-		if (currentWords.Count == 0)
-		{
-			Debug.LogWarning("Already found all the words");
-			return;
-		}
-		
 		foreach (WordPair pair in completionMap)
 		{
 			if (pair.letter.Equals(letter) && !pair.found)
 			{
 				pair.found = true;
-				
 				if (isWordComplete())
 				{
-					if (currentWords.Count  > 0)
+					if (currentWords.Count > 0)
 					{
 						string nextWord = currentWords.Dequeue();
 						setCurrentWord(nextWord);
 					}
+					else
+					{
+						wordListComplete = true;
+					}
 				}
+				UpdateText();
+				break;
 			}
 		}
-		UpdateText();
-		
-		Debug.LogError("Can't find letter " + letter);
 	}
 
 	private bool isWordComplete()
@@ -91,7 +99,7 @@ public class LetterManager : MonoBehaviour
 	
 	public bool IsLevelWordlistComplete()
 	{
-		return currentWords.Count == 0;
+		return wordListComplete;
 	}
 
 	private void UpdateText()

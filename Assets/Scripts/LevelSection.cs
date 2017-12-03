@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Component : MonoBehaviour {
+public class LevelSection : MonoBehaviour {
 
     private Rigidbody2D rb2D;
+	public List<LetterController> letterPlaceholders;
      
-    // Use this for initialization
 	void Start()
 	{
 		rb2D = GetComponent<Rigidbody2D>();
 	}
 
-	// Update is called once per frame
 	void Update ()
 	{
 

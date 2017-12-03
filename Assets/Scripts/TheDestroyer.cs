@@ -16,8 +16,6 @@ public class TheDestroyer : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		//TODO remove
-		Debug.Log("Destroy component");
 		GameManager.instance.DestroyGround(other);
 	}
 }

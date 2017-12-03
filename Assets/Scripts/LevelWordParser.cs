@@ -25,8 +25,6 @@ public class LevelWordParser {
 			}
 			else
 			{
-				//TODO remove
-				Debug.Log(level + ":" + safeLine);
 				words[level].Add(safeLine);
 			}
 		}
