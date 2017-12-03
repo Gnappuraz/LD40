@@ -44,6 +44,13 @@ public class DialogSceneManager : MonoBehaviour
     bool permittedDialog = false;
     Animation animation;
 
+    public Texture2D fadeOutTexture;
+    public float fadeSpeed = 0.8f;
+
+    private int drawDepth = -1000;
+    private float alpha = 1.0f;
+    private int fadeDir = -1;
+
     // Use this for initialization
     void Start()
     {
@@ -51,7 +58,7 @@ public class DialogSceneManager : MonoBehaviour
         textNonno = GameObject.Find("TextNonno").GetComponent<Text>();
         dialogButton = GameObject.Find("Button").GetComponent<Button>();
 
-        dialogButton.onClick.AddListener(GoAhead);
+        //dialogButton.onClick.AddListener(GoAhead);
     }
 
     // Update is called once per frame
@@ -75,6 +82,7 @@ public class DialogSceneManager : MonoBehaviour
 
         if (index == frasi_anna.Length - 1)
             GameObject.Find("sfondo").GetComponent<Animator>().SetBool("end", true);
+        
     }
 
     void Awake()

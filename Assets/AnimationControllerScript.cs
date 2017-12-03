@@ -4,8 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AnimationControllerScript : MonoBehaviour {
+    
+    bool permittedDialog = false;
+    Animation animation;
 
-	public void PermitDialog()
+    public Texture2D fadeOutTexture;
+    public float fadeSpeed = 0.8f;
+
+    private int drawDepth = -1000;
+    private float alpha = 1.0f;
+    private int fadeDir = -1;
+
+    public void PermitDialog()
     {
         DialogSceneManager.instance.PermitDialog();
     }
