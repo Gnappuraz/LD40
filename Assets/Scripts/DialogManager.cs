@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogManagerScript : MonoBehaviour {
+public class DialogManager : MonoBehaviour {
 
     public string[] frasi_anna = {"Hi Granpa, how are you today ?",
                             "Do you remember me? I’m Anna",
