@@ -3,17 +3,19 @@ using UnityEngine;
 using System.Collections;
 
 using System.Collections.Generic;
-using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;
 
+    [SerializeField] private LetterManager letterManager;
+
     public float speed;
+    public float targetSpeed;
+    private float startAccTime;
+    [SerializeField] private float acceleration;
     
-    private List<GameObject> activeComponents;
-    private List<GameObject> notActiveComponents;
     private BoxCollider2D lastSpawned;
 
     private Dictionary<int, List<string>> levelWords;
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
     List<List<GameObject>> difficultyObjects = new List<List<GameObject>>();
 
     private int currentDifficulty;
+    public int currentLevel = 0;
     public int startingLevel = 0;
     
     void Awake()
@@ -56,14 +59,15 @@ public class GameManager : MonoBehaviour
     {
         GameObject instance;
 
-        activeComponents = new List<GameObject>();
-        notActiveComponents = new List<GameObject>();
-
         //do not instantiate at 0 or there is not gonna be a OntriggerEnter2D for the screenLimitCollider
         instance = spawnTerrain(-1);
 
         currentDifficulty = 0;
-        speed = speedDiffModifiers[currentDifficulty];
+        speed = 0;
+        targetSpeed = speedDiffModifiers[currentDifficulty];
+        
+        
+        letterManager.SetCurrentWords(levelWords[currentLevel]);
 
         //activeComponents.Add(startingTerrain);
     }
@@ -100,7 +104,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        moveUpToSpeed();
     }
 
     public void PlayerKilled()
@@ -121,13 +125,45 @@ public class GameManager : MonoBehaviour
     private void goNextDifficulty()
     {
         currentDifficulty++;
-        speed = speedDiffModifiers[currentDifficulty];
+        targetSpeed = speedDiffModifiers[currentDifficulty];
     }
 
     public void PlayerHitLetter(string letter)
     {
+        letterManager.HitLetter(letter);
+
+        if (letterManager.IsLevelWordlistComplete())
+        {
+            targetSpeed = 0;
+            //GO to next level
+        }
+        
+        
         //Send letter to manager (update letter shown)
         //is level completed? go to next level
         // is not then increase difficulty (speed and difficulty set) 
+    }
+
+    private void moveUpToSpeed()
+    {
+        if (targetSpeed == speed)
+        {
+            return;
+        }
+
+        if (startAccTime == 0f)
+        {
+             startAccTime = Time.time;   
+        }
+       
+        if (Math.Abs(speed - targetSpeed) > 0.001f)
+        {
+            speed = Mathf.SmoothStep(speed, targetSpeed, (Time.time - startAccTime)/acceleration);
+        }
+        else
+        {
+            targetSpeed = speed;
+            startAccTime = 0;
+        }
     }
 }
