@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogManagerScript : MonoBehaviour {
+public class DialogManagerScript : MonoBehaviour
+{
+
+    public static DialogManagerScript instance = null;
 
     public string[] frasi_anna = {"Hi Granpa, how are you today ?",
                             "Do you remember me? I’m Anna",
@@ -38,11 +41,13 @@ public class DialogManagerScript : MonoBehaviour {
     public Text textAnna;
     public Text textNonno;
     public Button dialogButton;
+    bool permittedDialog = false;
 
     // Use this for initialization
-    void Start () {
-        textAnna = GameObject.Find("TextAnna").GetComponent<Text>();
-        textNonno = GameObject.Find("TextNonno").GetComponent<Text>();
+    void Start()
+    {
+        //textAnna = GameObject.Find("TextAnna").GetComponent<Text>();
+        //textNonno = GameObject.Find("TextNonno").GetComponent<Text>();
         dialogButton = GameObject.Find("Button").GetComponent<Button>();
 
         dialogButton.onClick.AddListener(GoAhead);
@@ -59,12 +64,29 @@ public class DialogManagerScript : MonoBehaviour {
 
     public void GoAhead()
     {
-        if (index < frasi_anna.Length - 1)
+        if (index < frasi_anna.Length - 1 && permittedDialog)
         {
             index++;
 
-            textAnna.text = frasi_anna[index];
-            textNonno.text = frasi_nonno[index];
+            //textAnna.text = frasi_anna[index];
+            //textNonno.text = frasi_nonno[index];
         }
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void PermitDialog()
+    {
+        permittedDialog = true;
+
+        GoAhead();
     }
 }

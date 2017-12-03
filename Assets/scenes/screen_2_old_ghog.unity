@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 89878829}
   - component: {fileID: 89878830}
   - component: {fileID: 89878831}
+  - component: {fileID: 89878832}
   m_Layer: 5
   m_Name: sfondo
   m_TagString: Untagged
@@ -335,6 +336,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &89878832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89878828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 756715bd7f99c07448ae971076edf249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &470772630
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +444,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 610639153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1210.8154, y: -106.69556, z: 0}
+  m_LocalPosition: {x: 1210.8154, y: -27.059204, z: 0}
   m_LocalScale: {x: 200, y: 200, z: 0}
   m_Children:
   - {fileID: 828258107}
@@ -957,7 +969,7 @@ RectTransform:
   m_GameObject: {fileID: 1876830968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.009259259, y: 0.009259259, z: 0.009259259}
+  m_LocalScale: {x: 0.01086098, y: 0.01086098, z: 0.01086098}
   m_Children:
   - {fileID: 89878829}
   m_Father: {fileID: 0}
