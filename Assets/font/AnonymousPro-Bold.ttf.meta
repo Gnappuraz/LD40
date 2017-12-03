@@ -5,15 +5,17 @@ licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
+  fontSize: 60
+  forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontName: Anonymous Pro
   fontNames:
   - Anonymous Pro
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 3a0017b12c2a04283a0babed1c4a61df, type: 3}
+  - {fileID: 12800000, guid: db75701b448944956a5593d173232b28, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
