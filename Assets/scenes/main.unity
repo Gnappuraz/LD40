@@ -370,7 +370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &440443956
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1117,6 +1117,8 @@ MonoBehaviour:
   level1: []
   level2: []
   level3: []
+  level4: []
+  level5: []
   speedDiffModifiers:
   - 0.15
   terrainHolder: {fileID: 1861510432}
@@ -1573,7 +1575,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2072107414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3329, y: 0.952, z: 0}
+  m_LocalPosition: {x: -4.3329, y: -1.49, z: 0}
   m_LocalScale: {x: 0.44309497, y: 0.44309515, z: 0}
   m_Children:
   - {fileID: 473345369}
