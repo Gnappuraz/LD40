@@ -10,6 +10,11 @@ public class PagineNavigator : MonoBehaviour
 	
 	private void Start()
 	{
+		if (GameStatus.GetCurrentLevel() > 3)
+		{
+			GameStatus.resetGame();
+		}
+		
 		animator.SetInteger("level", GameStatus.GetCurrentLevel());		
 	}
 
@@ -23,7 +28,9 @@ public class PagineNavigator : MonoBehaviour
 				break;
 			case 2: SceneManager.LoadScene("main");
 				break;
-			case 3: SceneManager.LoadScene("screen_theend");
+			case 3:
+				GameStatus.incLevel();
+				SceneManager.LoadScene("screen_theend");
 				break;
 		}
 	}

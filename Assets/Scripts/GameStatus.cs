@@ -18,4 +18,9 @@ public static class GameStatus
 		Debug.Log("inc level");
 		return ++currentLevel;
 	}
+
+	public static void resetGame()
+	{
+		currentLevel = 0;
+	}
 }
