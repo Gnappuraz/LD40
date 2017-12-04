@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
     [SerializeField] private LetterManager letterManager;
+    [SerializeField] private GameObject player;
 
     public float speed;
     public float targetSpeed;
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         LevelWordParser wordParser = new LevelWordParser();
         levelWords = wordParser.getWordDictionary();
@@ -66,8 +67,6 @@ public class GameManager : MonoBehaviour
 
     void InitGame()
     {
-        GameObject instance;
-
         currentDifficulty = 0;
         speed = 0;
         targetSpeed = speedDiffModifiers[currentDifficulty];
@@ -123,12 +122,13 @@ public class GameManager : MonoBehaviour
     public void PlayerKilled()
     {
         targetSpeed = 0;
+        Destroy(player);
         //GO to kill screen
     }
 
     public void InstanceNewGround()
     {
-        spawnTerrain(0);   
+        spawnTerrain(currentDifficulty);   
     }
 
     public void DestroyGround(Collider2D other)
@@ -138,7 +138,10 @@ public class GameManager : MonoBehaviour
 
     private void goNextDifficulty()
     {
-        currentDifficulty++;
+        Debug.Log(currentDifficulty);
+        
+        if(currentDifficulty < 5) currentDifficulty++;
+        
         targetSpeed = speedDiffModifiers[currentDifficulty];
     }
 
@@ -153,7 +156,7 @@ public class GameManager : MonoBehaviour
             //GO to next level
         } else
         {
-            //increase difficulty
+            goNextDifficulty();
         }
     }
 

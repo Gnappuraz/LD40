@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
     
     [SerializeField] private float jumpHigh;
     [SerializeField] private float catchUpVelocity;
-    [SerializeField] private Transform groundCheck;
+    [SerializeField] private Collider2D groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
     private float groundCheckRad = 0.1f;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
         grounded = true;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         //Collider2D collider = Physics2D.OverlapCircle(groundCheck.position, groundCheckRad, groundLayer);
         //bool onGround = collider != null;
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour {
             if (grounded)
             {
                 rb.velocity = new Vector2(0, 0);
-                rb.AddForce(new Vector2(0f, jumpHigh * 10));
+                rb.AddForce(new Vector2(0f, jumpHigh));
                 animator.SetTrigger("jump");
                 grounded = false;
             }
