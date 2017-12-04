@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform terrainHolder;
 
     [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Animator bgAnimator;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip hitLetterClip;
@@ -71,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     void InitGame()
     {
+        currentLevel = GameStatus.GetCurrentLevel();
         currentDifficulty = 0;
         speed = 0;
         targetSpeed = speedDiffModifiers[currentDifficulty];
@@ -143,8 +146,7 @@ public class GameManager : MonoBehaviour
 
     private void GoNextDifficulty()
     {
-        Debug.Log(currentDifficulty);
-        
+       
         if(currentDifficulty < 5) currentDifficulty++;
         
         targetSpeed = speedDiffModifiers[currentDifficulty];
@@ -159,11 +161,19 @@ public class GameManager : MonoBehaviour
         {
             targetSpeed = 0;
             playerAnimator.SetTrigger("stop");
-            //GO to next level
+
+            bgAnimator.SetTrigger("nextLvl");
+
         } else
         {
             GoNextDifficulty();
         }
+    }
+    
+    public void LoadNextLevel()
+    {
+        GameStatus.incLevel();
+        SceneManager.LoadScene("screen_1_lettera");
     }
 
     private void MoveUpToSpeed()

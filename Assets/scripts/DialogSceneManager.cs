@@ -91,8 +91,6 @@ public class DialogSceneManager : MonoBehaviour
             instance = this;
         else if (instance != this)
             Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
     }
 
     public void PermitDialog()

@@ -28,6 +28,4 @@ public class SoundManager : MonoBehaviour {
 		efxSource.clip = clip;
 		efxSource.Play ();
 	}
-	
-
 }

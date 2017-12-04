@@ -1,12 +1,6 @@
 -0
-love
-child
-girl
+a
 -1
-disease
-argue
-isolate
+ab
 -2
-died
-gun
-sorrow
+abc
