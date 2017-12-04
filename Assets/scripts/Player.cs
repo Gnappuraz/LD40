@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
     private Collider2D collider;
     private bool grounded;
 
+    private float drag = 0;
+
     [SerializeField] private AudioSource audioSource;
 
     void Start () {
@@ -37,7 +39,30 @@ public class Player : MonoBehaviour {
             grounded = onGround;
             if(grounded) animator.SetTrigger("grounded");    
         }
-        Debug.Log(rb.velocity.y);
+
+        //Compensate unwanted accelerations
+        if (rb.velocity.y > 10)
+        {
+            Debug.Log(rb.velocity.y);
+            if (drag == 0)
+            {
+                drag = 0.2f;
+            }
+            else
+            {
+                drag *= 2;
+            }
+
+            rb.drag = drag;
+        }
+        else
+        {
+            if (drag > 0)
+            {
+                drag = 0;
+                rb.drag = drag;
+            }
+        }
     }
 
     void Update () {
