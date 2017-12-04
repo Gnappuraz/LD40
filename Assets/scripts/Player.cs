@@ -37,6 +37,7 @@ public class Player : MonoBehaviour {
             grounded = onGround;
             if(grounded) animator.SetTrigger("grounded");    
         }
+        Debug.Log(rb.velocity.y);
     }
 
     void Update () {
