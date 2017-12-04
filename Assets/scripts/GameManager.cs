@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
             List<GameObject> pool = difficultyObjects[difficulty];
             GameObject toInstantiate = pool[Random.Range(0, pool.Count)];
 
-            instance = Instantiate(toInstantiate, new Vector3(), Quaternion.identity, terrainHolder) as GameObject;
+            instance = Instantiate(toInstantiate, new Vector3(), toInstantiate.transform.rotation, terrainHolder) as GameObject;
             instance.transform.localPosition = new Vector3(lastSpawned.gameObject.transform.position.x + lastSpawned.size.x, 0, 1f);
             enableLetter(instance.GetComponent<LevelSection>());
         }
@@ -131,7 +131,8 @@ public class GameManager : MonoBehaviour
         audioSource.PlayOneShot(deathclip);
         targetSpeed = 0;
         Destroy(player);
-        //GO to kill screen
+        
+        bgAnimator.SetTrigger("death");
     }
 
     public void InstanceNewGround()
@@ -174,6 +175,11 @@ public class GameManager : MonoBehaviour
     {
         GameStatus.incLevel();
         SceneManager.LoadScene("screen_1_lettera");
+    }
+    
+    public void LoadSameLevel()
+    {
+        SceneManager.LoadScene("screen_fail");
     }
 
     private void MoveUpToSpeed()
