@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform terrainHolder;
 
     [SerializeField] private Animator playerAnimator;
+
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip hitLetterClip;
+    [SerializeField] private AudioClip deathclip;
     
     List<List<GameObject>> difficultyObjects = new List<List<GameObject>>();
 
@@ -116,11 +120,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        moveUpToSpeed();
+        MoveUpToSpeed();
     }
 
     public void PlayerKilled()
     {
+        audioSource.PlayOneShot(deathclip);
         targetSpeed = 0;
         Destroy(player);
         //GO to kill screen
@@ -136,7 +141,7 @@ public class GameManager : MonoBehaviour
         Destroy(other.gameObject);
     }
 
-    private void goNextDifficulty()
+    private void GoNextDifficulty()
     {
         Debug.Log(currentDifficulty);
         
@@ -147,6 +152,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerHitLetter(string letter)
     {
+        audioSource.PlayOneShot(hitLetterClip);
         letterManager.HitLetter(letter);
 
         if (letterManager.IsLevelWordlistComplete())
@@ -156,11 +162,11 @@ public class GameManager : MonoBehaviour
             //GO to next level
         } else
         {
-            goNextDifficulty();
+            GoNextDifficulty();
         }
     }
 
-    private void moveUpToSpeed()
+    private void MoveUpToSpeed()
     {
         if (Math.Abs(targetSpeed - speed) < 0.001)
         {

@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
     private Collider2D collider;
     private bool grounded;
 
+    [SerializeField] private AudioSource audioSource;
+
     void Start () {
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
@@ -59,5 +61,10 @@ public class Player : MonoBehaviour {
                 grounded = false;
             }
         }
+    }
+
+    void PlayJumpSound()
+    {
+        audioSource.Play();
     }
 }
