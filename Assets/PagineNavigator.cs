@@ -3,7 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PagineNavigator : MonoBehaviour {
+public class PagineNavigator : MonoBehaviour
+{
+
+	[SerializeField] private Animator animator;
+	
+	private void Start()
+	{
+		animator.SetInteger("level", GameStatus.GetCurrentLevel());		
+	}
 
 	public void LoadNext()
 	{
