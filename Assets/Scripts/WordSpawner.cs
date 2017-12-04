@@ -20,6 +20,7 @@ public class WordSpawner : MonoBehaviour
 	void Start ()
 	{
 		remainingTime = timer;
+		spawnPool = new Queue<GameObject>(spawners.OrderBy(a => Guid.NewGuid()).ToList());
 	}
 	
 	void Update ()
@@ -36,13 +37,15 @@ public class WordSpawner : MonoBehaviour
 
 	private void SpawnWord()
 	{
+		GameObject component = spawnPool.Dequeue();
+		component.GetComponent<Text>().text = GetText();
+		component.GetComponent<Animator>().SetTrigger("show");
+		
 		if (spawnPool.Count < 1)
 		{
 			spawnPool = new Queue<GameObject>(spawners.OrderBy(a => Guid.NewGuid()).ToList());
+			remainingTime = timer;
 		}
-
-		spawnPool.Dequeue().GetComponent<Text>().text = GetText();
-		spawnPool.Dequeue().GetComponent<Animator>().SetTrigger("show");
 	}
 
 	private string GetText()
