@@ -220,7 +220,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 131216910}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 499, y: -250, z: 0}
+  m_LocalPosition: {x: 498.99994, y: -250, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 1160726960}
@@ -500,8 +500,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1285408995}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 0}
+  m_LocalPosition: {x: -58, y: 17, z: 0}
+  m_LocalScale: {x: 148.10457, y: 158.7945, z: 0}
   m_Children: []
   m_Father: {fileID: 2020362458}
   m_RootOrder: 1
@@ -559,11 +559,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4899047132130196, guid: 20a32664c29444e13a743c534267a7f8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -46
       objectReference: {fileID: 0}
     - target: {fileID: 4899047132130196, guid: 20a32664c29444e13a743c534267a7f8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 4899047132130196, guid: 20a32664c29444e13a743c534267a7f8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -606,11 +606,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4899047132130196, guid: 20a32664c29444e13a743c534267a7f8, type: 2}
       propertyPath: m_LocalScale.x
-      value: 108
+      value: 145.28107
       objectReference: {fileID: 0}
     - target: {fileID: 4899047132130196, guid: 20a32664c29444e13a743c534267a7f8, type: 2}
       propertyPath: m_LocalScale.y
-      value: 108
+      value: 167.86353
       objectReference: {fileID: 0}
     - target: {fileID: 4899047132130196, guid: 20a32664c29444e13a743c534267a7f8, type: 2}
       propertyPath: m_LocalScale.z
@@ -672,7 +672,7 @@ RectTransform:
   m_GameObject: {fileID: 2020362457}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 100}
-  m_LocalScale: {x: 0.009259259, y: 0.009259259, z: 0.009259259}
+  m_LocalScale: {x: 0.00925926, y: 0.00925926, z: 0.00925926}
   m_Children:
   - {fileID: 1160726960}
   - {fileID: 1285408996}
@@ -711,10 +711,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
