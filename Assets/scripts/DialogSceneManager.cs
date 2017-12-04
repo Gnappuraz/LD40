@@ -29,9 +29,6 @@ public class DialogSceneManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        textAnna = GameObject.Find("TextAnna").GetComponent<Text>();
-        textNonno = GameObject.Find("TextNonno").GetComponent<Text>();
-        dialogButton = GameObject.Find("Button").GetComponent<Button>();
 
         dialogButton.onClick.AddListener(GoAhead);
 

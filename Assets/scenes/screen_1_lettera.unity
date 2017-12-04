@@ -1099,6 +1099,7 @@ RectTransform:
   - {fileID: 1216517189}
   - {fileID: 280912511}
   - {fileID: 1910728029}
+  - {fileID: 1419824979}
   m_Father: {fileID: 1787525447}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3238,7 +3239,6 @@ RectTransform:
   - {fileID: 132311363}
   - {fileID: 1398231261}
   - {fileID: 1381642110}
-  - {fileID: 1419824979}
   m_Father: {fileID: 1787525447}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3806,6 +3806,7 @@ GameObject:
   - component: {fileID: 1217940158}
   - component: {fileID: 1217940157}
   - component: {fileID: 1217940156}
+  - component: {fileID: 1217940160}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3894,6 +3895,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1217940160
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1217940155}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 906a700b8d77a4869bf8499d96bed732, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1254521574
 GameObject:
   m_ObjectHideFlags: 0
@@ -4838,7 +4856,7 @@ GameObject:
   - component: {fileID: 1419824979}
   - component: {fileID: 1419824980}
   m_Layer: 0
-  m_Name: cancella_testo3_risize200 (3)
+  m_Name: cancella_testo3_risize200 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4852,10 +4870,10 @@ RectTransform:
   m_GameObject: {fileID: 1419824978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.8000002, y: -3.7599998, z: 0}
-  m_LocalScale: {x: 0.12908399, y: 0.19974717, z: 0}
+  m_LocalScale: {x: 0.12908398, y: 0.19974715, z: 0}
   m_Children: []
-  m_Father: {fileID: 1096980606}
-  m_RootOrder: 3
+  m_Father: {fileID: 354640008}
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
